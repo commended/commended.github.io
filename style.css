@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    background: #0a0e14;
+    color: #e6e1dc;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    height: 90vh;
+    background: #1a1f2e;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    background: #151a26;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2a3142;
+}
+
+.title {
+    color: #5ccfe6;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.button.close {
+    background: #ff5f56;
+}
+
+.button.minimize {
+    background: #ffbd2e;
+}
+
+.button.maximize {
+    background: #27c93f;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.top-row {
+    height: 40%;
+}
+
+.bottom-row {
+    height: 40%;
+}
+
+.module {
+    background: #151a26;
+    border: 1px solid #2a3142;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.socials-module {
+    flex: 0 0 300px;
+}
+
+.commits-module {
+    flex: 1;
+}
+
+.kitty-module {
+    flex: 0 0 300px;
+}
+
+.terminal-module {
+    flex: 1;
+}
+
+.module-header {
+    background: #0d1117;
+    padding: 8px 16px;
+    font-size: 12px;
+    color: #8b949e;
+    border-bottom: 1px solid #2a3142;
+    font-weight: bold;
+}
+
+.module-content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Socials Module */
+.social-item {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-item .arrow {
+    color: #5ccfe6;
+    font-weight: bold;
+}
+
+.social-item a {
+    color: #bae67e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.social-item a:hover {
+    color: #ffd580;
+}
+
+.social-item .platform {
+    color: #8b949e;
+    font-size: 11px;
+    margin-left: auto;
+}
+
+/* Commits Module */
+.commit-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #2a3142;
+}
+
+.commit-item:last-child {
+    border-bottom: none;
+}
+
+.commit-hash {
+    color: #ffd580;
+    font-weight: bold;
+}
+
+.commit-message {
+    color: #e6e1dc;
+    margin: 4px 0;
+}
+
+.commit-author {
+    color: #5ccfe6;
+    font-size: 11px;
+}
+
+.commit-date {
+    color: #8b949e;
+    font-size: 11px;
+    margin-left: 12px;
+}
+
+.loading {
+    color: #8b949e;
+    font-style: italic;
+}
+
+.error {
+    color: #ff5370;
+}
+
+/* Kitty Module */
+.ascii-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ascii-art pre {
+    color: #bae67e;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+/* Terminal Module */
+.terminal-module .module-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#terminal-output {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+.output-line {
+    margin: 4px 0;
+}
+
+.command-line {
+    color: #5ccfe6;
+}
+
+.response-line {
+    color: #e6e1dc;
+    margin-left: 16px;
+}
+
+.error-line {
+    color: #ff5370;
+    margin-left: 16px;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid #2a3142;
+    padding-top: 12px;
+}
+
+.prompt {
+    color: #5ccfe6;
+    font-weight: bold;
+}
+
+#terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #e6e1dc;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+#terminal-input::selection {
+    background: #5ccfe6;
+    color: #0a0e14;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a3142;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3a4152;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .top-row, .bottom-row {
+        height: auto;
+    }
+    
+    .socials-module, .kitty-module {
+        flex: 1;
+        min-height: 200px;
+    }
+    
+    .commits-module, .terminal-module {
+        min-height: 300px;
+    }
+}
