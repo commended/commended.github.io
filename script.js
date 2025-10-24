@@ -1,3 +1,35 @@
+// Splash screen functionality
+let siteRevealed = false;
+const WELCOME_MESSAGE_DELAY = 500;
+
+function revealSite() {
+    if (!siteRevealed) {
+        siteRevealed = true;
+        const splashScreen = document.getElementById('splash-screen');
+        const container = document.querySelector('.container');
+        
+        splashScreen.style.display = 'none';
+        container.classList.remove('hidden');
+        
+        // Initialize after revealing
+        fetchCommits();
+        terminalInput.focus();
+        
+        // Show welcome message with a small delay
+        setTimeout(() => {
+            addOutput('Welcome to commended\'s terminal portfolio!');
+            addOutput('Type \'help\' to see available commands.\n');
+        }, WELCOME_MESSAGE_DELAY);
+    }
+}
+
+// Listen for Enter key on splash screen
+document.addEventListener('keydown', (e) => {
+    if (!siteRevealed && e.key === 'Enter') {
+        revealSite();
+    }
+});
+
 // GitHub API integration for commit history
 async function fetchCommits() {
     const commitsContent = document.getElementById('commits-content');
@@ -218,17 +250,9 @@ terminalInput.addEventListener('keydown', (e) => {
 });
 
 // Auto-focus terminal input
-terminalInput.focus();
 document.querySelector('.terminal-module').addEventListener('click', () => {
     terminalInput.focus();
 });
 
-// Initialize
-fetchCommits();
-
-// Show welcome message on load with a small delay to ensure terminal is ready
-const WELCOME_MESSAGE_DELAY = 500;
-setTimeout(() => {
-    addOutput('Welcome to commended\'s terminal portfolio!');
-    addOutput('Type \'help\' to see available commands.\n');
-}, WELCOME_MESSAGE_DELAY);
+// Don't initialize automatically - wait for Enter key on splash screen
+// fetchCommits() and welcome message will be called in revealSite()
