@@ -6,8 +6,8 @@
 
 body {
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
-    background: #0a0e14;
-    color: #e6e1dc;
+    background: #000000;
+    color: #FFFFFF;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ body {
     width: 100%;
     max-width: 1400px;
     height: 90vh;
-    background: #1a1f2e;
+    background: #000000;
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -28,16 +28,16 @@ body {
 }
 
 .header {
-    background: #151a26;
+    background: #000000;
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #2a3142;
+    border-bottom: 1px solid #FFFFFF;
 }
 
 .title {
-    color: #5ccfe6;
+    color: #FFFFFF;
     font-weight: bold;
     font-size: 14px;
 }
@@ -71,13 +71,13 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
     overflow: auto;
 }
 
 .row {
     display: flex;
-    gap: 20px;
+    gap: 0;
 }
 
 .top-row {
@@ -89,9 +89,9 @@ body {
 }
 
 .module {
-    background: #151a26;
-    border: 1px solid #2a3142;
-    border-radius: 6px;
+    background: #000000;
+    border: 1px solid #FFFFFF;
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -114,11 +114,11 @@ body {
 }
 
 .module-header {
-    background: #0d1117;
+    background: #000000;
     padding: 8px 16px;
     font-size: 12px;
-    color: #8b949e;
-    border-bottom: 1px solid #2a3142;
+    color: #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
     font-weight: bold;
 }
 
@@ -139,23 +139,23 @@ body {
 }
 
 .social-item .arrow {
-    color: #5ccfe6;
+    color: #FFFFFF;
     font-weight: bold;
 }
 
 .social-item a {
-    color: #bae67e;
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .social-item a:hover {
-    color: #ffd580;
+    color: #CCCCCC;
 }
 
 .social-item .platform {
-    color: #8b949e;
+    color: #FFFFFF;
     font-size: 11px;
     margin-left: auto;
 }
@@ -163,7 +163,7 @@ body {
 /* Commits Module */
 .commit-item {
     padding: 8px 0;
-    border-bottom: 1px solid #2a3142;
+    border-bottom: 1px solid #FFFFFF;
 }
 
 .commit-item:last-child {
@@ -171,33 +171,33 @@ body {
 }
 
 .commit-hash {
-    color: #ffd580;
+    color: #FFFFFF;
     font-weight: bold;
 }
 
 .commit-message {
-    color: #e6e1dc;
+    color: #FFFFFF;
     margin: 4px 0;
 }
 
 .commit-author {
-    color: #5ccfe6;
+    color: #FFFFFF;
     font-size: 11px;
 }
 
 .commit-date {
-    color: #8b949e;
+    color: #FFFFFF;
     font-size: 11px;
     margin-left: 12px;
 }
 
 .loading {
-    color: #8b949e;
+    color: #FFFFFF;
     font-style: italic;
 }
 
 .error {
-    color: #ff5370;
+    color: #FFFFFF;
 }
 
 /* Kitty Module */
@@ -208,7 +208,7 @@ body {
 }
 
 .ascii-art pre {
-    color: #bae67e;
+    color: #FFFFFF;
     font-size: 16px;
     line-height: 1.2;
 }
@@ -230,16 +230,16 @@ body {
 }
 
 .command-line {
-    color: #5ccfe6;
+    color: #FFFFFF;
 }
 
 .response-line {
-    color: #e6e1dc;
+    color: #FFFFFF;
     margin-left: 16px;
 }
 
 .error-line {
-    color: #ff5370;
+    color: #FFFFFF;
     margin-left: 16px;
 }
 
@@ -247,12 +247,12 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    border-top: 1px solid #2a3142;
+    border-top: 1px solid #FFFFFF;
     padding-top: 12px;
 }
 
 .prompt {
-    color: #5ccfe6;
+    color: #FFFFFF;
     font-weight: bold;
 }
 
@@ -260,15 +260,15 @@ body {
     flex: 1;
     background: transparent;
     border: none;
-    color: #e6e1dc;
+    color: #FFFFFF;
     font-family: inherit;
     font-size: 13px;
     outline: none;
 }
 
 #terminal-input::selection {
-    background: #5ccfe6;
-    color: #0a0e14;
+    background: #FFFFFF;
+    color: #000000;
 }
 
 /* Scrollbar styling */
@@ -278,16 +278,46 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #0d1117;
+    background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2a3142;
+    background: #FFFFFF;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #3a4152;
+    background: #CCCCCC;
+}
+
+/* Initial hidden state */
+.container.hidden {
+    display: none;
+}
+
+#splash-screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    color: #FFFFFF;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+#splash-terminal {
+    font-size: 16px;
+}
+
+#splash-cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
 }
 
 /* Responsive */
