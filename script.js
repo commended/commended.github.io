@@ -66,10 +66,10 @@ function displayMockCommits() {
         <div class="commit-item">
             <div>
                 <span class="commit-hash">${commit.sha}</span>
-                <span class="commit-message">${commit.message}</span>
+                <span class="commit-message">${escapeHtml(commit.message)}</span>
             </div>
             <div>
-                <span class="commit-author">${commit.author}</span>
+                <span class="commit-author">${escapeHtml(commit.author)}</span>
                 <span class="commit-date">${formatDate(commit.date)}</span>
             </div>
         </div>
@@ -226,8 +226,9 @@ document.querySelector('.terminal-module').addEventListener('click', () => {
 // Initialize
 fetchCommits();
 
-// Show welcome message on load
+// Show welcome message on load with a small delay to ensure terminal is ready
+const WELCOME_MESSAGE_DELAY = 500;
 setTimeout(() => {
     addOutput('Welcome to commended\'s terminal portfolio!');
     addOutput('Type \'help\' to see available commands.\n');
-}, 500);
+}, WELCOME_MESSAGE_DELAY);
