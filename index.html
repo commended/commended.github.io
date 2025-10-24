@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>commended - terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="title">commended@portfolio:~$</span>
+            <span class="buttons">
+                <span class="button close"></span>
+                <span class="button minimize"></span>
+                <span class="button maximize"></span>
+            </span>
+        </div>
+        
+        <div class="content">
+            <!-- Top row: Socials (square) and Commit History (horizontal rectangle) -->
+            <div class="row top-row">
+                <div class="module socials-module">
+                    <div class="module-header">socials.sh</div>
+                    <div class="module-content">
+                        <div class="social-item">
+                            <span class="arrow">></span>
+                            <a href="https://instagram.com/03ur" target="_blank">@03ur</a>
+                            <span class="platform">instagram</span>
+                        </div>
+                        <div class="social-item">
+                            <span class="arrow">></span>
+                            <a href="https://github.com/commended" target="_blank">@commended</a>
+                            <span class="platform">github</span>
+                        </div>
+                        <div class="social-item">
+                            <span class="arrow">></span>
+                            <a href="https://tiktok.com/@immo" target="_blank">@immo</a>
+                            <span class="platform">tiktok</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="module commits-module">
+                    <div class="module-header">git_commits.log</div>
+                    <div class="module-content" id="commits-content">
+                        <div class="loading">Loading commit history...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom row: Kitty ASCII (square) and Terminal (below commits) -->
+            <div class="row bottom-row">
+                <div class="module kitty-module">
+                    <div class="module-header">kitty.art</div>
+                    <div class="module-content ascii-art">
+<pre>
+   /\_/\  
+  ( o.o ) 
+   > ^ <
+  /|   |\
+ (_|   |_)
+</pre>
+                    </div>
+                </div>
+                
+                <div class="module terminal-module">
+                    <div class="module-header">terminal.sh</div>
+                    <div class="module-content">
+                        <div id="terminal-output"></div>
+                        <div class="input-line">
+                            <span class="prompt">$</span>
+                            <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
