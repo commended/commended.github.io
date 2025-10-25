@@ -3,18 +3,19 @@ let siteRevealed = false;
 const WELCOME_MESSAGE_DELAY = 500;
 let splashInputText = '';
 
+// Cache the splash input element
+const splashInput = document.getElementById('splash-input');
+
 // Capture typing on splash screen
 document.addEventListener('keydown', (e) => {
-    if (!siteRevealed) {
-        const splashInput = document.getElementById('splash-input');
-        
+    if (!siteRevealed && splashInput) {
         if (e.key === 'Enter') {
             revealSite();
         } else if (e.key === 'Backspace') {
             e.preventDefault();
             splashInputText = splashInputText.slice(0, -1);
             splashInput.textContent = splashInputText;
-        } else if (e.key.length === 1) {
+        } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
             e.preventDefault();
             splashInputText += e.key;
             splashInput.textContent = splashInputText;
