@@ -12,7 +12,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .container {
@@ -25,6 +26,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    margin: 20px;
 }
 
 .header {
@@ -300,8 +302,9 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
     background: #000000;
     color: #FFFFFF;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
@@ -313,6 +316,10 @@ body {
 
 #splash-cursor {
     animation: blink 1s infinite;
+}
+
+#splash-input {
+    display: inline;
 }
 
 @keyframes blink {
