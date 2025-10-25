@@ -1,6 +1,48 @@
 // Splash screen functionality
 let siteRevealed = false;
 const WELCOME_MESSAGE_DELAY = 500;
+let splashInputText = '';
+
+// Capture typing on splash screen
+document.addEventListener('keydown', (e) => {
+    if (!siteRevealed) {
+        const splashInput = document.getElementById('splash-input');
+        
+        if (e.key === 'Enter') {
+            revealSite();
+        } else if (e.key === 'Backspace') {
+            e.preventDefault();
+            splashInputText = splashInputText.slice(0, -1);
+            splashInput.textContent = splashInputText;
+        } else if (e.key.length === 1) {
+            e.preventDefault();
+            splashInputText += e.key;
+            splashInput.textContent = splashInputText;
+        }
+    }
+});
+
+// Splash screen reveal function
+function revealSite() {
+    if (!siteRevealed) {
+        siteRevealed = true;
+        const splashScreen = document.getElementById('splash-screen');
+        const container = document.querySelector('.container');
+        
+        splashScreen.style.display = 'none';
+        container.classList.remove('hidden');
+        
+        // Initialize after revealing
+        fetchCommits();
+        terminalInput.focus();
+        
+        // Show welcome message with a small delay
+        setTimeout(() => {
+            addOutput('Welcome to commended\'s terminal portfolio!');
+            addOutput('Type \'help\' to see available commands.\n');
+        }, WELCOME_MESSAGE_DELAY);
+    }
+}
 
 // GitHub API integration for commit history
 async function fetchCommits() {
@@ -224,33 +266,4 @@ terminalInput.addEventListener('keydown', (e) => {
 // Auto-focus terminal input
 document.querySelector('.terminal-module').addEventListener('click', () => {
     terminalInput.focus();
-});
-
-// Splash screen reveal function
-function revealSite() {
-    if (!siteRevealed) {
-        siteRevealed = true;
-        const splashScreen = document.getElementById('splash-screen');
-        const container = document.querySelector('.container');
-        
-        splashScreen.style.display = 'none';
-        container.classList.remove('hidden');
-        
-        // Initialize after revealing
-        fetchCommits();
-        terminalInput.focus();
-        
-        // Show welcome message with a small delay
-        setTimeout(() => {
-            addOutput('Welcome to commended\'s terminal portfolio!');
-            addOutput('Type \'help\' to see available commands.\n');
-        }, WELCOME_MESSAGE_DELAY);
-    }
-}
-
-// Listen for Enter key on splash screen
-document.addEventListener('keydown', (e) => {
-    if (!siteRevealed && e.key === 'Enter') {
-        revealSite();
-    }
 });
